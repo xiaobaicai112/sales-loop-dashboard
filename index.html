@@ -17,13 +17,17 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{background:var(--bg);color:var(--ink);
-  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
   -webkit-font-smoothing:antialiased;}
 .wrap{max-width:1480px;margin:0 auto;padding:28px 26px 60px;}
+
+/* ===== 顶部 ===== */
 header.top{margin-bottom:20px;}
 h1{font-size:25px;font-weight:900;letter-spacing:.5px;display:flex;align-items:center;gap:12px;}
 h1 .dot{width:11px;height:11px;border-radius:50%;background:var(--green3);box-shadow:0 0 0 4px rgba(82,196,26,.15);}
 .sub{color:var(--ink2);font-size:13.5px;margin-top:9px;font-weight:400;}
+
+/* ===== 图例 ===== */
 .legend{display:flex;flex-wrap:wrap;gap:18px;align-items:center;background:var(--paper);
   border:1px solid var(--line);border-radius:12px;padding:13px 18px;margin:16px 0 22px;}
 .legend .lg-title{font-size:12.5px;color:var(--ink3);font-weight:500;margin-right:2px;}
@@ -31,6 +35,8 @@ h1 .dot{width:11px;height:11px;border-radius:50%;background:var(--green3);box-sh
 .swatch{width:22px;height:12px;border-radius:3px;display:inline-block;}
 .lg .grad-green{background:linear-gradient(90deg,var(--green0),var(--green4));}
 .lg .grad-yellow{background:linear-gradient(90deg,var(--yellow0),var(--orange));}
+
+/* ===== 主体布局 ===== */
 .main{display:flex;gap:22px;align-items:flex-start;}
 .rings{flex:1;min-width:0;display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
 .ring-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;
@@ -43,6 +49,8 @@ h1 .dot{width:11px;height:11px;border-radius:50%;background:var(--green3);box-sh
 .chart{width:100%;height:268px;}
 .ring-card.wide{grid-column:1/-1;}
 .ring-card.wide .chart{max-width:440px;margin:0 auto;}
+
+/* ===== 详情面板 ===== */
 .detail{width:352px;flex-shrink:0;background:var(--paper);border:1px solid var(--line);
   border-radius:14px;padding:20px 20px 22px;position:sticky;top:22px;max-height:calc(100vh - 44px);overflow-y:auto;}
 .dt-path{font-size:12px;color:var(--ink3);font-weight:500;letter-spacing:.5px;}
@@ -56,15 +64,21 @@ h1 .dot{width:11px;height:11px;border-radius:50%;background:var(--green3);box-sh
 .src-tags{display:flex;flex-wrap:wrap;gap:7px;padding-left:9px;}
 .src-tag{font-size:11.5px;padding:3px 10px;border-radius:6px;background:#F2F3F5;color:var(--ink2);font-weight:500;}
 .dt-expect{background:#F6FFED;border:1px solid #D9F7BE;border-radius:10px;padding:11px 14px;font-size:12.5px;line-height:1.6;color:#389E0D;margin-top:4px;}
+
+/* 默认总览态 */
 .ov-title{font-size:17px;font-weight:900;margin-bottom:14px;}
 .ov-line{display:flex;justify-content:space-between;align-items:center;padding:10px 4px;border-bottom:1px solid var(--line);font-size:13px;}
 .ov-line:last-child{border-bottom:none;}
 .ov-line .pname{font-weight:600;}
 .ov-line .pstate{font-size:11.5px;color:var(--ink2);}
 .ov-hint{margin-top:16px;background:#F7F8FA;border-radius:10px;padding:13px 15px;font-size:12.5px;color:var(--ink2);line-height:1.65;}
+
+/* ===== 底部说明 ===== */
 footer.note{margin-top:24px;background:var(--paper);border:1px solid var(--line);border-radius:12px;
   padding:16px 20px;font-size:12.5px;color:var(--ink2);line-height:1.8;}
 footer.note b{color:var(--ink);font-weight:700;}
+
+/* ===== 响应式 ===== */
 @media (max-width:1080px){
   .main{flex-direction:column;}
   .detail{width:100%;position:static;max-height:none;order:2;}
@@ -109,6 +123,7 @@ footer.note b{color:var(--ink);font-weight:700;}
 const DATA = {"P1关系靠近": [{"id": "reczz28LINEOYLnS", "name": "① 看见", "path": "P1关系靠近", "order": 1, "think": "这人是谁？刷到了，停一下", "prove": "内容值得停留、不反感", "status": "进行中", "block": "朋友圈+私域触达已启动、首条未发，曝光≈0", "lack": "首批能让人停下的内容", "action": "定朋友圈体系、发首条", "sources": ["S1", "S4"], "note": null}, {"id": "reczz28LINEOcV6l", "name": "② 认同/兴趣", "path": "P1关系靠近", "order": 2, "think": "他说的有点道理，我也这么想", "prove": "立场观点和我一致、懂我", "status": "未启动", "block": "观点还没成内容发出去", "lack": "几个能穿透的立场话题", "action": "定6个核心观点话题", "sources": ["S1", "S2"], "note": null}, {"id": "reczz28LINEOfjlE", "name": "③ 觉得你有东西", "path": "P1关系靠近", "order": 3, "think": "这人有货，不是空架子", "prove": "真实研究、案例、专业判断", "status": "未启动", "block": "研究和案例还没外化", "lack": "研究成果与案例的可见成品", "action": "AI剪辑测评/案例拆解成品", "sources": ["S2", "S4"], "note": null}, {"id": "reczz28LINEOeJ6q", "name": "④ 产生期待", "path": "P1关系靠近", "order": 4, "think": "靠近他未来能得到东西", "prove": "想象空间、持续生长", "status": "未启动", "block": "没把“未来会有什么”讲清楚", "lack": "想象空间的呈现", "action": "拉期待内容、会员系统预告", "sources": ["S4"], "note": null}, {"id": "reczz28LINEOe6W8", "name": "⑤ 想靠近/主动询问", "path": "P1关系靠近", "order": 5, "think": "我想认识他、进圈子，怎么进", "prove": "可接近、有入口", "status": "未启动", "block": "没有明确靠近路径和承接", "lack": "靠近路径与回应机制", "action": "咨询承接、引导进群", "sources": ["S3", "S4"], "note": null}, {"id": "reczz28LINEOg9qd", "name": "⑥ 成交399", "path": "P1关系靠近", "order": 6, "think": "399值，付了", "prove": "临门一脚、付款顺畅", "status": "未启动", "block": "无付款入口、缺最后推力", "lack": "付款入口", "action": "商品入口、天使/限时会员", "sources": ["S4"], "note": null}], "P2成果种草": [{"id": "reczz28LINEOcp9u", "name": "① 看到成果", "path": "P2成果种草", "order": 1, "think": "他发的这个材料/研究不错", "prove": "有具体成果露出", "status": "未启动", "block": "S2在做、没有成品", "lack": "哪怕一份完整成果", "action": "先做“如何提出好问题”完整材料", "sources": ["S2"], "note": null}, {"id": "reczz28LINEOePF2", "name": "② 感觉有价值", "path": "P2成果种草", "order": 2, "think": "这东西对我有用", "prove": "切中具体人群具体问题", "status": "未启动", "block": "成果没对准人群痛点", "lack": "成果与人群痛点对应", "action": "明确每份成果给谁、解决什么", "sources": ["S2", "S3"], "note": null}, {"id": "reczz28LINEOcOEh", "name": "③ 想深入了解", "path": "P2成果种草", "order": 3, "think": "我想看更多更全的", "prove": "露出片段、背后有体系", "status": "未启动", "block": "缺片段→体系的钩子", "lack": "内容结尾的钩子", "action": "内容结尾留“完整版”钩子", "sources": ["S2"], "note": null}, {"id": "reczz28LINEOd8be", "name": "④ 想获得完整材料", "path": "P2成果种草", "order": 4, "think": "完整材料在哪、怎么拿", "prove": "完整材料真实存在、可取", "status": "未启动", "block": "完整材料未入库、无领取路径", "lack": "材料入库与领取路径", "action": "成果归档会员区", "sources": ["S2", "S4"], "note": null}, {"id": "reczz28LINEOdJsU", "name": "⑤ 知道会员可获得", "path": "P2成果种草", "order": 5, "think": "进会员就能持续拿到", "prove": "权益包含这些成果", "status": "未启动", "block": "缺权益与成果对应说明", "lack": "权益对应说明", "action": "出权益清单", "sources": ["S4"], "note": null}, {"id": "reczz28LINEOeZIV", "name": "⑥ 成交399", "path": "P2成果种草", "order": 6, "think": "为这些材料，值", "prove": "付款顺畅", "status": "未启动", "block": "无付款入口", "lack": "付款入口", "action": "商品入口", "sources": ["S4"], "note": null}], "P3系统接入": [{"id": "reczz28LINEOcXN8", "name": "① 看到持续实践", "path": "P3系统接入", "order": 1, "think": "他一直在做事、在迭代", "prove": "持续行动的记录", "status": "未启动", "block": "底座刚搭、进展没对外播报", "lack": "持续进展播报", "action": "定期播报在做的事", "sources": ["S4"], "note": null}, {"id": "reczz28LINEOdw2L", "name": "② 感知系统/网络形成", "path": "P3系统接入", "order": 2, "think": "他身边有一圈人、一套系统", "prove": "合作伙伴、会员网络、工具系统", "status": "未启动", "block": "网络和系统不可见", "lack": "网络/系统的可见展示", "action": "介绍合作伙伴、成员、会员系统", "sources": ["S3", "S4"], "note": null}, {"id": "reczz28LINEOdpBT", "name": "③ 想长期进入", "path": "P3系统接入", "order": 3, "think": "想长期挂在这个生长的系统里", "prove": "长期价值、系统会长大", "status": "未启动", "block": "缺长期/终身价值说明", "lack": "终身价值说明", "action": "讲清终身会员逻辑", "sources": ["S4"], "note": null}, {"id": "reczz28LINEOdJAn", "name": "④ 主动询问", "path": "P3系统接入", "order": 4, "think": "怎么加入、还能进吗", "prove": "入口、稀缺感", "status": "未启动", "block": "无承接", "lack": "咨询承接", "action": "咨询承接", "sources": ["S3", "S4"], "note": null}, {"id": "reczz28LINEOdAMI", "name": "⑤ 成交399", "path": "P3系统接入", "order": 5, "think": "值，付了", "prove": "付款顺畅", "status": "未启动", "block": "无付款入口", "lack": "付款入口", "action": "商品入口", "sources": ["S4"], "note": null}], "P4直接购买": [{"id": "reczz28LINEOdAfe", "name": "① 看到商品", "path": "P4直接购买", "order": 1, "think": "这有个399的东西", "prove": "商品页/海报存在", "status": "未启动", "block": "没有正面商品呈现", "lack": "商品介绍", "action": "出399商品页/海报", "sources": ["S4"], "note": null}, {"id": "reczz28LINEOfrav", "name": "② 理解权益", "path": "P4直接购买", "order": 2, "think": "399给我什么", "prove": "权益清单清晰", "status": "未启动", "block": "权益不明确", "lack": "明确权益", "action": "出权益清单", "sources": ["S4"], "note": null}, {"id": "reczz28LINEOgF5E", "name": "③ 判断性价比", "path": "P4直接购买", "order": 3, "think": "这些权益不止399", "prove": "价值可量化、有锚点", "status": "未启动", "block": "缺价值锚点", "lack": "对比/算账", "action": "算账、对比市场价", "sources": ["S2", "S4"], "note": null}, {"id": "reczz28LINEOclkv", "name": "④ 解除疑问", "path": "P4直接购买", "order": 4, "think": "靠谱吗、怎么交付", "prove": "信任背书、答疑", "status": "未启动", "block": "缺FAQ和背书", "lack": "FAQ、案例、真实承诺", "action": "做FAQ、背书材料", "sources": ["S3", "S4"], "note": null}, {"id": "reczz28LINEOdzRR", "name": "⑤ 付款", "path": "P4直接购买", "order": 5, "think": "买", "prove": "付款顺畅", "status": "未启动", "block": "无付款入口", "lack": "付款入口", "action": "商品入口", "sources": ["S4"], "note": null}], "ToB方案成交": [{"id": "reczz28LINEOfCg4", "name": "① 触达老板", "path": "ToB方案成交", "order": 1, "think": "这人/公司是做什么的", "prove": "进入老板视野", "status": "进行中", "block": "100访谈10/12启动、首批未正式访", "lack": "稳定触达渠道与约见", "action": "完成首批约见、持续约100位", "sources": ["S3"], "note": null}, {"id": "reczz28LINEOgFwr", "name": "② 身份背书/建立信任", "path": "ToB方案成交", "order": 2, "think": "他凭什么能帮我", "prove": "小拼身份、案例、研究院背书", "status": "进行中", "block": "协议待签、对外身份没完全坐实", "lack": "签约落地、背书材料", "action": "完成小拼签约、备背书材料", "sources": ["S3", "S4"], "note": null}, {"id": "reczz28LINEOgBya", "name": "③ 发现/确认痛点", "path": "ToB方案成交", "order": 3, "think": "他真懂我的问题", "prove": "问诊能力、问对问题", "status": "未启动", "block": "缺真实访谈痛点提炼", "lack": "访谈诊断、痛点记录", "action": "访谈中做诊断、记痛点", "sources": ["S3"], "note": null}, {"id": "reczz28LINEOecV2", "name": "④ 提交方案", "path": "ToB方案成交", "order": 4, "think": "他的解法对路、可落地", "prove": "针对性方案、案例支撑", "status": "未启动", "block": "缺方案模板和案例库", "lack": "方案框架、案例库", "action": "沉淀方案框架、用小拼案例", "sources": ["S2", "S4"], "note": null}, {"id": "reczz28LINEOfZza", "name": "⑤ 报价谈判", "path": "ToB方案成交", "order": 5, "think": "值不值、怎么合作", "prove": "价值匹配价格、商务清晰", "status": "未启动", "block": "缺报价体系和商务条款", "lack": "报价体系、合同", "action": "组品报价、合同", "sources": ["S4"], "note": null}, {"id": "reczz28LINEOgBNz", "name": "⑥ 签约交付", "path": "ToB方案成交", "order": 6, "think": "定了，交给他们", "prove": "交付能力、履约", "status": "未启动", "block": "目标2-3月30万，尚无成交", "lack": "签约与交付", "action": "签约、启动交付", "sources": ["S4"], "note": null}]};
 </script>
 <script>
+// ===== 路径元信息（展示顺序、描述、角标） =====
 const PATH_META=[
   {key:"P1关系靠近", short:"P1", title:"P1 关系靠近", tag:"399 闭环",
     desc:"被人看见、认同、觉得你有货，最终想靠近你这个人"},
@@ -121,6 +136,8 @@ const PATH_META=[
   {key:"ToB方案成交", short:"ToB", title:"ToB 方案成交", tag:"方案成交", wide:true,
     desc:"触达老板、身份背书、确诊痛点，到提交方案、报价、签约交付"},
 ];
+
+// ===== 状态 → 颜色 / 标签色 =====
 function segColor(st){
   switch(st){
     case "未启动": return "#DCDFE6";
@@ -150,7 +167,7 @@ function statusPill(st){
     "已打通":["#F6FFED","#237804"]
   };
   const c=map[st]||map["未启动"];
-  return 'style="background:'+c[0]+';color:'+c[1]+"';
+  return 'style="background:'+c[0]+';color:'+c[1]+"";
 }
 function blockStyle(st){
   const map={
@@ -161,13 +178,14 @@ function blockStyle(st){
     "已打通":["#F6FFED","#237804"]
   };
   const c=map[st]||map["未启动"];
-  return 'style="background:'+c[0]+';color:'+c[1]+"';
+  return 'style="background:'+c[0]+';color:'+c[1]+"";
 }
 function esc(s){return (s==null?"":String(s));}
 
 const charts={};
 const ringsEl=document.getElementById("rings");
 
+// ===== 构建每个环 =====
 PATH_META.forEach(meta=>{
   const segs=DATA[meta.key]||[];
   const started=segs.filter(s=>s.status!=="未启动").length;
@@ -231,6 +249,7 @@ PATH_META.forEach(meta=>{
   });
 });
 
+// ===== 详情面板 =====
 const detailEl=document.getElementById("detail");
 
 function showDetail(meta,segs,idx){
@@ -267,12 +286,13 @@ function showDetail(meta,segs,idx){
     '<div class="dt-row"><div class="dt-label">依赖信息源</div>'+
       '<div class="src-tags">'+(srcTags||'<span class="src-tag">—</span>')+'</div></div>'+
     (s.note?'<div class="dt-row"><div class="dt-label">注脚</div>'+
-      '<div class="dt-val">'+esc(s.note)+'</div></div>':'')+
-    '<div class="dt-expect"><b>打通后预期：</b>'+expect;
+      '<div class="dt-val">'+esc(s.note)+'</div></div>':"")+
+    '<div class="dt-expect"><b>打通后预期：</b>'+expect+'</div>';
 
   detailEl.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
 
+// ===== 默认总览态 =====
 function renderOverview(){
   const rows=PATH_META.map(m=>{
     const segs=DATA[m.key]||[];
